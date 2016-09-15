@@ -429,6 +429,55 @@ primates</code></pre>
 ## $strepsirhini$lemuroidea$daubentoniidae
 ## [1] &quot;daubentoniidae&quot;</code></pre>
 </div>
+<div id="challenge-5" class="section level2">
+<h2>Challenge 5:</h2>
+<ul>
+<li>Store the following numbers as a 6 x 3 matrix: 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2</li>
+<li>Then, do the following:</li>
+<li>Coerce the matrix to a data frame.</li>
+<li>As a data frame, coerce the second column to be logical-valued</li>
+<li>As a data frame, coerce the third column to be factor-valued ### Solution:</li>
+</ul>
+<pre class="r"><code>m &lt;- matrix(data=c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow=6, ncol=3, byrow=TRUE)</code></pre>
+<pre><code>## Warning in matrix(data = c(3, 0, 1, 23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, :
+## data length [15] is not a sub-multiple or multiple of the number of rows
+## [6]</code></pre>
+<pre class="r"><code>m</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    3    0    1
+## [2,]   23    1    2
+## [3,]   33    1    1
+## [4,]   42    0    1
+## [5,]   41    0    2
+## [6,]    3    0    1</code></pre>
+<pre class="r"><code>df &lt;- data.frame(m)
+df</code></pre>
+<pre><code>##   X1 X2 X3
+## 1  3  0  1
+## 2 23  1  2
+## 3 33  1  1
+## 4 42  0  1
+## 5 41  0  2
+## 6  3  0  1</code></pre>
+<pre class="r"><code>df[2] &lt;- as.logical(df[[2]])
+df</code></pre>
+<pre><code>##   X1    X2 X3
+## 1  3 FALSE  1
+## 2 23  TRUE  2
+## 3 33  TRUE  1
+## 4 42 FALSE  1
+## 5 41 FALSE  2
+## 6  3 FALSE  1</code></pre>
+<pre class="r"><code>df[3] &lt;- as.factor(df[[3]])
+df</code></pre>
+<pre><code>##   X1    X2 X3
+## 1  3 FALSE  1
+## 2 23  TRUE  2
+## 3 33  TRUE  1
+## 4 42 FALSE  1
+## 5 41 FALSE  2
+## 6  3 FALSE  1</code></pre>
+</div>
 </div>
 
 
