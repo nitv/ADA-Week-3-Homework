@@ -89,3 +89,24 @@ strepsirhini <- list(lorisoidea=lorisoidea, lemuroidea=lemuroidea)
 primates <- list(haplorhini=haplorhini, strepsirhini=strepsirhini)
 primates
 ```
+
+##Challenge 5:
+- Store the following numbers as a 6 x 3 matrix: 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2
+- Then, do the following:
+  - Coerce the matrix to a data frame.
+  - As a data frame, coerce the second column to be logical-valued
+  - As a data frame, coerce the third column to be factor-valued
+### Solution:
+```{r}
+m <- matrix(data=c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow=6, ncol=3, byrow=TRUE)
+m
+
+df <- data.frame(m)
+df
+
+df[2] <- as.logical(df[[2]])
+df
+
+df[3] <- as.factor(df[[3]])
+df
+```
