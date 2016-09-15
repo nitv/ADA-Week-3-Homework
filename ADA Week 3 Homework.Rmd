@@ -1,0 +1,91 @@
+---
+title: "ADA Week 3 Homework"
+author: "Nitin Verma"
+date: "September 14, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Challenges for this week
+This week's challenges were based on the usage of data classes such as matrices, and arrays. Here is my attempt at the challenges:
+
+## Challenge 1:
+- First, create a vector of 1 word character strings comprising the first line of the Gettysburg address: “Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.”
+- Then, extract every third element of this vector.
+### Solution:
+```{r}
+library(stringr)
+wordVector <- stringr::str_split("Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.", " ")[[1]]
+str(wordVector)
+wordVector
+wordVector[seq(from=1, to=length(wordVector), by=2)]
+```
+
+## Challenge 2 (solutions inline):
+```{r}
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+m
+```
+- Given the matrix, m, above, extract the 2nd, 3rd, and 6th columns and assign them to the variable x
+```{r}
+x <- m[,c(2,3,6)]
+x
+```
+- Given the matrix, m, above, extract the 6th to 8th row and assign them to the variable x
+```{r}
+x <- m[6:8,]
+x
+```
+- Given the matrix, m, above, extract the elements from row 2, column 2 to row 6, column 9 and assign them to the variable x
+```{r}
+x <- m[2:6, 2:9]
+x
+```
+
+## Challenge 3:
+- Construct a 4-dimensional, 400 element array (5 x 5 x 4 x 4) named a consisting of the numbers 400 to 1 (i.e., a descending series)
+- Given this matrix, what would the following return?
+  - a[1, 1, 1, 2]
+  - a[2, 3, 2, ]
+  - a[1:5, 1:5, 3, 3]
+### Solution:
+```{r}
+a <- array(data=400:1, dim=c(5,5,4,4))
+a
+a[1, 1, 1, 2]
+a[2, 3, 3, ]
+a[1:5, 1:5, 3, 3]
+```
+
+##Challenge 4:
+Create a list representing a simplified primate taxonomy.
+### Solution:
+```{r}
+platyrrhini <- c("Cebidae", "Atelidae", "Pitheciidae")
+catarrhini <- c("Cercopithecidae", "Hylobatidae", "Hominidae")
+anthropoidea <- list(platyrrhini=platyrrhini, catarrhini=catarrhini)
+
+tarsiidae <- c("tarsiidae")
+tarsioidea <- list(tarsiidae=tarsiidae)
+
+haplorhini <- list(anthropoidea=anthropoidea, tarsioidea=tarsioidea)
+
+lorisidae <- c("lorisidae")
+galagidae <- c("galagidae")
+lorisoidea <- list(lorisidae=lorisidae, galagidae=galagidae)
+
+cheirogaleidae <- c("cheirogaleidae")
+lepilemuridae <- c("lepilemuridae")
+indriidae <- c("indriidae")
+lemuridae <- c("lemuridae")
+daubentoniidae <- c("daubentoniidae")
+lemuroidea <- list(cheirogaleidae=cheirogaleidae, lepilemuridae=lepilemuridae, indriidae=indriidae, lemuridae=lemuridae, daubentoniidae=daubentoniidae)
+
+strepsirhini <- list(lorisoidea=lorisoidea, lemuroidea=lemuroidea)
+
+primates <- list(haplorhini=haplorhini, strepsirhini=strepsirhini)
+primates
+```
